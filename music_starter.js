@@ -13,9 +13,11 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    
   
 
-   for (let i = 1; i < 100; i++){
-   var steppa = i+40
-   star (100, steppa*i, 2);
+   for (let i = 1; i < 10; i++){
+  
+   star (50, 30*i, 2);
+   star (50*i, 30*i, 1)
+   star (15*i, 25*i)
    }
  
 
