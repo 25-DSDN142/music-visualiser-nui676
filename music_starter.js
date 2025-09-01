@@ -10,27 +10,39 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    let bar_height = width / 12;
    let bar_pos_x = width / 2;
  
-   line ()
+   
+  
 
-strokeWeight (2);
-stroke (255);
-fill(155)
-beginShape ();
-vertex (0, 0);
-vertex (25, 25);
-vertex (25, 12.5);
-vertex (12.5, 12.5);
-vertex (25, 0);
-vertex (12.5, 0);
-vertex (12.5, 25);
-vertex (0, 25);
-vertex (12.5, 12.5);
-vertex (0, 12.5)
-endShape (CLOSE);
+   for (let i = 1; i < 50; i++){
+   var steppa = i+10
+   star (100, steppa, 2);
+   }
+ 
 
-line (0, 0, 540, 960)//canvas size?
+   
+   
+}
 
 
+function star(x,y,size){
+   
+   strokeWeight (2);
+   stroke (255);
+   fill(155)
+   beginShape ();
 
-
+   push()
+   scale(size);
+   vertex (x, y);
+   vertex (x+25, y+25);
+   vertex (x+25, y+12.5);
+   vertex (x+12.5, y+12.5);
+   vertex (x+25, y);
+   vertex (x+12.5, y);
+   vertex (x+12.5, y+25);
+   vertex (x, y+25);
+   vertex (x+12.5, y+12.5);
+   vertex (x, y+12.5)
+   endShape (CLOSE);
+   pop()
 }
