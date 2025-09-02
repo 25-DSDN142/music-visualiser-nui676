@@ -11,21 +11,16 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    let bar_pos_x = width / 2;
  
    
-  
+ let v = map (bass, 0, 100, 0, 200);
 
-   for (let i = 1; i < 10; i++){
-  
-   star (50, 30*i, 2);
-   star (50*i, 30*i, 1)
-   star (15*i, 25*i)
+   for (let i = 1; i <= v; i++){
+   star (30*i, 100, 2);
    }
  
 
    
    
 }
-
-
 function star(x,y,size){
    
    strokeWeight (2);
