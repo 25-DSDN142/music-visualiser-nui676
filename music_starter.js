@@ -18,18 +18,27 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    }
  
 
-   
-   
+  strokeWeight (100);
+  stroke (100);
+  //fill (map something to the transparency)
+
+  beginShape ();
+  push ();
+  scale (size)
+  curve (x+100, y+200, x+150, y+80, x+180, y+90, x+250, y+200)
+  endShape (CLOSE);
+  pop();
+
 }
 function star(x,y,size){
    
+  push();
    strokeWeight (2);
    stroke (255);
    // fill(155 )
    fill(220, 150)
+   
    beginShape ();
-
-   push()
    scale(size);
    vertex (x, y);
    vertex (x+25, y+25);
@@ -40,7 +49,22 @@ function star(x,y,size){
    vertex (x+12.5, y+25);
    vertex (x, y+25);
    vertex (x+12.5, y+12.5);
-   vertex (x, y+12.5)
+   vertex (x, y+12.5);
    endShape (CLOSE);
    pop()
+}
+function leaves (x,y,size){
+  
+  push();
+  strokeWeight (100);
+  stroke (100);
+  //fill (map something to the transparency)
+
+  beginShape ();
+  push ();
+  scale (size)
+  curve (x+100, y+200, x+150, y+80, x+180, y+90, x+250, y+200)
+  endShape (CLOSE);
+  pop();
+  
 }
