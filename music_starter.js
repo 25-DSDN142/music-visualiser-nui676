@@ -14,7 +14,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
  let v = map (bass, 0, 100, 0, 8);
 
    for (let i = 1; i <= v; i++){
-   let angle = frameCount * 0.01;
+   let angle = frameCount * 0.6;
   rotate(angle);
    star (100*i, 100, 2);
    }
