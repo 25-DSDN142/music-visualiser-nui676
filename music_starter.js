@@ -10,24 +10,21 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    let bar_height = width / 12;
    let bar_pos_x = width / 2;
  
-   
+   push();
  let v = map (bass, 0, 100, 0, 8);
 
    for (let i = 1; i <= v; i++){
-   star (30*i, 100, 2);
+   let angle = frameCount * 0.01;
+  rotate(angle);
+   star (100*i, 100, 2);
    }
- 
+ pop();
 
-  strokeWeight (100);
+push();
+  strokeWeight (1);
   stroke (100);
+  noFill();
   //fill (map something to the transparency)
-
-  beginShape ();
-  push ();
-  scale (size)
-  curve (x+100, y+200, x+150, y+80, x+180, y+90, x+250, y+200)
-  endShape (CLOSE);
-  pop();
 
 }
 function star(x,y,size){
