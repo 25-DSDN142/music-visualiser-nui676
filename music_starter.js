@@ -15,31 +15,41 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
    for (let i = 1; i <= v; i++){
    //let angle = frameCount * 0.6;
-  //rotate(angle); i like this, 
-  rotate (3);
+  //rotate(angle); i like this,
    star (25*i, 100, 2);
    }
  pop();
 
+ push ();
+ let g = map (drum, 0, 100, 0, 8);
+  for (let b = 1; b <= g; b++){
+    spear ( 200, 50*b, 2);
+  }
+  pop();
+
+  }
+
+function spear (x, y, size){
+  
 push();
-  strokeWeight (1);
-  stroke (100);
-  noFill();
-  //fill (map something to the transparency)
+strokeWeight (1);
+stroke (0);
+fill("red");
 beginShape();
-vertex (0, 0)
-vertex (50, 50);
-vertex (50, 40);
-vertex (40, 40);
-vertex (40, 30);
-vertex (0, 0);
-vertex (30, 40);
-vertex (40, 40);
-vertex (40, 50);
-vertex (50, 50);
+vertex (x, y)
+vertex (x+50, y+50);
+vertex (x+50, y+40);
+vertex (x+40, y+40);
+vertex (x+40, y+30);
+vertex (x, y);
+vertex (x+30, y+40);
+vertex (x+40, y+40);
+vertex (x+40, y+50);
+vertex (x+50, y+50);
 endShape (CLOSE);
 pop();
 }
+
 function star(x,y,size){
    
   push();
