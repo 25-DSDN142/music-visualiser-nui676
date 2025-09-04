@@ -14,9 +14,10 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
  let v = map (bass, 0, 100, 0, 8);
 
    for (let i = 1; i <= v; i++){
-   let angle = frameCount * 0.6;
-  rotate(angle);
-   star (100*i, 100, 2);
+   //let angle = frameCount * 0.6;
+  //rotate(angle); i like this, 
+  rotate (3);
+   star (25*i, 100, 2);
    }
  pop();
 
@@ -25,7 +26,19 @@ push();
   stroke (100);
   noFill();
   //fill (map something to the transparency)
-
+beginShape();
+vertex (0, 0)
+vertex (50, 50);
+vertex (50, 40);
+vertex (40, 40);
+vertex (40, 30);
+vertex (0, 0);
+vertex (30, 40);
+vertex (40, 40);
+vertex (40, 50);
+vertex (50, 50);
+endShape (CLOSE);
+pop();
 }
 function star(x,y,size){
    
