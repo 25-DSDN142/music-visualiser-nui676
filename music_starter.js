@@ -10,34 +10,81 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    let bar_height = width / 12;
    let bar_pos_x = width / 2;
  
-// changes 
-   // vocal bar is red
-   fill(200, 0, 0);
-   rect(bar_pos_x, height / 2 + 1 * bar_spacing, 4 * vocal, bar_height);
-   fill(0);
-   text("vocals", bar_pos_x, height / 2 + 1 * bar_spacing + 8);
- 
-   // drum bar is green
-   fill(0, 200, 0);
-   rect(bar_pos_x, height / 2 + 2 * bar_spacing, 4 * drum, bar_height);
-   fill(0);
-   text("drums", bar_pos_x, height / 2 + 2 * bar_spacing + 8);
- 
-   // bass bar is blue
-   fill(50, 50, 240);
-   rect(bar_pos_x, height / 2 + 3 * bar_spacing, 4 * bass, bar_height);
-   fill(0);
-   text("bass", bar_pos_x, height / 2 + 3 * bar_spacing + 8);
- 
-   // other bar is white
-   fill(200, 200, 200);
-   rect(bar_pos_x, height / 2 + 4 * bar_spacing, 4 * other, bar_height);
-   fill(0);
-   text("other", bar_pos_x, height / 2 + 4 * bar_spacing + 8);
-   fill(255, 255, 0);
- 
-   // display "words"
-   textAlign(CENTER);
-   textSize(vocal);
-   text(words, width/2, height/3);
+   push();
+ let v = map (bass, 0, 100, 0, 8);
+
+   for (let i = 1; i <= v; i++){
+   //let angle = frameCount * 0.6;
+  //rotate(angle); i like this,
+   star (25*i, 100, 2);
+   }
+ pop();
+
+ push ();
+ let g = map (drum, 0, 100, 0, 8);
+  for (let b = 1; b <= g; b++){
+    spear ( 200, 50*b, 2);
+  }
+  pop();
+
+  }
+
+function spear (x, y, size){
+  
+push();
+strokeWeight (1);
+stroke (0);
+fill("red");
+beginShape();
+vertex (x, y)
+vertex (x+50, y+50);
+vertex (x+50, y+40);
+vertex (x+40, y+40);
+vertex (x+40, y+30);
+vertex (x, y);
+vertex (x+30, y+40);
+vertex (x+40, y+40);
+vertex (x+40, y+50);
+vertex (x+50, y+50);
+endShape (CLOSE);
+pop();
+}
+
+function star(x,y,size){
+   
+  push();
+   strokeWeight (2);
+   stroke (255);
+   // fill(155 )
+   fill(220, 150)
+   
+   beginShape ();
+   scale(size);
+   vertex (x, y);
+   vertex (x+25, y+25);
+   vertex (x+25, y+12.5);
+   vertex (x+12.5, y+12.5);
+   vertex (x+25, y);
+   vertex (x+12.5, y);
+   vertex (x+12.5, y+25);
+   vertex (x, y+25);
+   vertex (x+12.5, y+12.5);
+   vertex (x, y+12.5);
+   endShape (CLOSE);
+   pop()
+}
+function leaves (x,y,size){
+  
+  push();
+  strokeWeight (100);
+  stroke (100);
+  //fill (map something to the transparency)
+
+  beginShape ();
+  push ();
+  scale (size)
+  curve (x+100, y+200, x+150, y+80, x+180, y+90, x+250, y+200)
+  endShape (CLOSE);
+  pop();
+  
 }
