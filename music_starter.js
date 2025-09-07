@@ -36,9 +36,12 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    
 
     push();
+    for (let g = 0; g <= 25; g++){
+    rotate (2*g)
     star(257, 300, 1);
+  }
     pop();
-  
+
    //grid
    strokeWeight (1);
    stroke (155);
