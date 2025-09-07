@@ -32,16 +32,13 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    strokeWeight (2)
    stroke (0);
    fill (255)
-   ellipse (270, 500, 280, 380);
-
-   //left arm
-   strokeWeight (1);
-   stroke (0);
-   fill (255);
+   ellipse (270, 500, 250, 350);
    
 
-   pop ();
-   
+    push();
+    star(257, 300, 1);
+    pop();
+  
    //grid
    strokeWeight (1);
    stroke (155);
@@ -70,9 +67,10 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 function spear (x, y, size,){
   
 push();
-strokeWeight (1);
-stroke (0);
-fill(155);
+strokeWeight (2);
+stroke (255);
+fill(255);
+
 beginShape();
 vertex (x, y)
 vertex (x+50, y+50);
@@ -91,10 +89,10 @@ pop();
 function star(x,y,size){
    
   push();
-   strokeWeight (2);
-   stroke (255);
+   strokeWeight (1);
+   stroke (150);
    // fill(155 )
-   fill(220, 150)
+   fill(0)
    
    beginShape ();
    scale(size);
