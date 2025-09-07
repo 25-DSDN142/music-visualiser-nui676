@@ -9,32 +9,55 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    let bar_spacing = height / 10;
    let bar_height = width / 12;
    let bar_pos_x = width / 2;
- 
-   push();
- let v = map (bass, 0, 100, 0, 8);
-
-   for (let i = 1; i <= v; i++){
+   
+   //rotate(angle); i like this,
    //let angle = frameCount * 0.6;
-  //rotate(angle); i like this,
-   star (25*i, 100, 2);
-   }
- pop();
+  
+   
+   push ();
+   strokeWeight (0);
+   stroke (155);
+   fill (255);
+   ellipse (270, 500, 300, 400);
+   
+   strokeWeight (2)
+   stroke (0);
+   fill (255)
+    ellipse (270, 500, 280, 380);
 
- push ();
- let g = map (drum, 0, 100, 0, 8);
-  for (let b = 1; b <= g; b++){
-    spear ( 200, 50*b, 2);
+   pop ();
+   
+   //grid
+   strokeWeight (1);
+   stroke (155);
+   line (0, 0, 540, 960);
+   line (540, 0, 0, 960);
+   line (270, 0, 270, 960);
+   line (0, 480, 540, 480);
   }
-  pop();
+   
+   
+   
 
-  }
+   
+   
+   
+   
+   
+   
+  
+   
+   
+   
+  
 
-function spear (x, y, size){
+
+function spear (x, y, size,){
   
 push();
 strokeWeight (1);
 stroke (0);
-fill("red");
+fill(155);
 beginShape();
 vertex (x, y)
 vertex (x+50, y+50);
@@ -72,19 +95,4 @@ function star(x,y,size){
    vertex (x, y+12.5);
    endShape (CLOSE);
    pop()
-}
-function leaves (x,y,size){
-  
-  push();
-  strokeWeight (100);
-  stroke (100);
-  //fill (map something to the transparency)
-
-  beginShape ();
-  push ();
-  scale (size)
-  curve (x+100, y+200, x+150, y+80, x+180, y+90, x+250, y+200)
-  endShape (CLOSE);
-  pop();
-  
 }
