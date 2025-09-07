@@ -1,7 +1,7 @@
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-  background(20)
+  background(150)
   textFont('Verdana'); // please use CSS safe fonts
   rectMode(CENTER)
   textSize(24);
@@ -15,15 +15,30 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   
    
    push ();
-   strokeWeight (0);
-   stroke (155);
+
+  //turtle head?
+   strokeWeight (1);
+   stroke (0);
+   fill (255);
+   ellipse (270, 290, 100, 120);
+
+   //outershell
+   strokeWeight (1);
+   stroke (0);
    fill (255);
    ellipse (270, 500, 300, 400);
    
+  //innershell border 
    strokeWeight (2)
    stroke (0);
    fill (255)
-    ellipse (270, 500, 280, 380);
+   ellipse (270, 500, 280, 380);
+
+   //left arm
+   strokeWeight (1);
+   stroke (0);
+   fill (255);
+   
 
    pop ();
    
