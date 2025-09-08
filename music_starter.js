@@ -31,7 +31,7 @@ pop ();
    fill (255);
 
    xMove = xMove + 1;
-   if (xMove > 150){
+   if (xMove > 100){
     xMove = 0;
    }
 
@@ -39,8 +39,8 @@ pop ();
 
    
    ellipse (440+xMove, 460, 100, 180);
-   ellipse (350, 650, 100, 200);
-   ellipse (190, 650, 100, 200);
+   ellipse (350, 650+xMove, 100, 200);
+   ellipse (190, 650+xMove, 100, 200);
    pop ();
    
    //outershell
