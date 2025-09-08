@@ -1,7 +1,7 @@
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-  background(150)
+  background("blue")
   textFont('Verdana'); // please use CSS safe fonts
   rectMode(CENTER)
   textSize(24);
@@ -22,6 +22,17 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    fill (255);
    ellipse (270, 290, 100, 120);
 
+   //arms and legs
+   push();
+   strokeWeight (1);
+   stroke (0);
+   fill (255);
+  ellipse (100, 460, 100, 180);
+  ellipse (440, 460, 100, 180);
+  ellipse (350, 650, 100, 200);
+  ellipse (190, 650, 100, 200);
+   pop ();
+
    //outershell
    strokeWeight (1);
    stroke (0);
@@ -34,11 +45,13 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    fill (255)
    ellipse (270, 500, 250, 350);
    
+//so im trying to get the star to wrap around the shells inner edge line(inner shell)
 
-    push();
-    for (let g = 0; g <= 25; g++){
-    rotate (2*g)
-    star(257, 300, 1);
+
+push();
+    for (let g = 0; g <= 5; g++){
+      rotate (2)
+    star(257*g, 300, 1);
   }
     pop();
 
