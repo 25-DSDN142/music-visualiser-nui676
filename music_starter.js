@@ -48,12 +48,15 @@ stroke (0)
 
 pop();
 
-//turtle
-push()
-;
-   ellipse (100, 460, 100, 180);
-   ellipse (440, 460, 100, 180);
+//turtle legs and arms?
+push();
+//left arm
+   ellipse (120, 500, 100, 180);
+//right arm
+   ellipse (420, 500, 100, 180);
+//right leg
    ellipse (350, 650, 100, 200);
+//left leg
    ellipse (190, 650, 100, 200);
    pop ();
    
