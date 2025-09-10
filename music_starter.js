@@ -1,4 +1,5 @@
 var xMove = 1;
+var swing = sin (frameCount *2)*5
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
@@ -17,7 +18,6 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   
    
    push ();
-
   //turtle head?
    strokeWeight (1);
    stroke (0);
@@ -25,43 +25,44 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    ellipse (270, 290, 100, 120);
 pop ();
 
-   //arms and legs
-   push ();
-   strokeWeight (1);
-   stroke (0);
-   fill ("yellow");
+push ();
+//water movement draft
+xMove = xMove + 1;
+if (xMove > 950){
+  xMove = 0;}
 
-   //water movement draft
-xMove = xMove + 5;
-  if (xMove > 950){
-  xMove = 0;
-   }
-push();
 strokeWeight (1);
 stroke (0)
 //ill have to play with these lines, maybe add a map to the colour?
-   translate (200, 1+xMove)
-   line (200, 0, 200, 100);
-   line (100, 0, 100, 100);
-   line (50, 100, 50, 200);
-   line (-100, -100, -100, -200)
+translate (200, 1+xMove)
+line (200, 0, 200, 100);
+line (100, 0, 100, 100);
+line (50, 100, 50, 200);
+line (-100, -100, -100, -200)
 
 pop();
 
-//turtle legs and arms?
-push();
-ellipseMode (CORNER);
-//left arm
 
-   ellipse (120, 500, 100, 180);
-
-//right arm
-   ellipse (420, 500, 100, 180);
-//right leg
-   ellipse (350, 650, 100, 200);
+push ();
 //left leg
-   ellipse (190, 650, 100, 200);
-   pop ();
+strokeWeight (1);
+stroke (255);
+fill (0);
+ellipseMode (CORNER);
+//sin is wow, we knew that we had to move it at rotate.
+//will map this to something at some point
+translate (160 + 50, 600);
+let swing = sin (frameCount *2)*5
+rotate (swing)
+ellipse (-50, 0, 100, 180);
+pop ();
+push ();
+translate (350 + 50, 600);
+rotate (-swing);
+ellipse (-50, 0, 100, 180);
+pop();
+
+
    
    //outershell
    strokeWeight (1);
