@@ -52,15 +52,42 @@ ellipseMode (CORNER);
 //sin is wow, we knew that we had to move it at rotate.
 //will map this to something at some point
 translate (160 + 50, 600);
-let swing = sin (frameCount *2)*5
+
+let swing = sin (frameCount *3)*10
 rotate (swing)
 ellipse (-50, 0, 100, 180);
 pop ();
+
 push ();
-translate (350 + 50, 600);
+strokeWeight (1);
+stroke (255);
+fill (0);
+
+translate (330 + 50, 690);
 rotate (-swing);
 ellipse (-50, 0, 100, 180);
 pop();
+
+push ();
+strokeWeight (1);
+stroke (255);
+fill (0);
+
+translate (120 + 50, 480);
+rotate (swing);
+ellipse (-50, 0, 100, 180);
+pop();
+
+push ();
+strokeWeight (1);
+stroke (255);
+fill (0);
+
+translate (430 + 50, 480);
+rotate (-swing);
+ellipse (-50, 0, 100, 180);
+pop();
+
 
 
    
