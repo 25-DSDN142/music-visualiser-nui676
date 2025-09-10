@@ -4,7 +4,8 @@ var xMove = 1;
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background("blue")
   textFont('Verdana'); // please use CSS safe fonts
-  rectMode(CENTER)
+  rectMode(CENTER);
+  angleMode(DEGREES);
   textSize(24);
   
    let bar_spacing = height / 10;
@@ -28,19 +29,32 @@ pop ();
    push ();
    strokeWeight (1);
    stroke (0);
-   fill (255);
+   fill ("yellow");
 
-   xMove = xMove + 1;
-   if (xMove > 100){
-    xMove = 0;
+   //water movement draft
+xMove = xMove + 5;
+  if (xMove > 950){
+  xMove = 0;
    }
+push();
+strokeWeight (1);
+stroke (0)
+//ill have to play with these lines, maybe add a map to the colour?
+   translate (200, 1+xMove)
+   line (200, 0, 200, 100);
+   line (100, 0, 100, 100);
+   line (50, 100, 50, 200);
+   line (-100, -100, -100, -200)
 
-   ellipse (100+xMove, 460, 100, 180);
+pop();
 
-   
-   ellipse (440+xMove, 460, 100, 180);
-   ellipse (350, 650+xMove, 100, 200);
-   ellipse (190, 650+xMove, 100, 200);
+//turtle
+push()
+;
+   ellipse (100, 460, 100, 180);
+   ellipse (440, 460, 100, 180);
+   ellipse (350, 650, 100, 200);
+   ellipse (190, 650, 100, 200);
    pop ();
    
    //outershell
@@ -58,47 +72,29 @@ pop ();
    //so im trying to get the star to wrap around the shells inner edge line(inner shell)
    
    
-   push ();
-   for (let t = 0; t <= 8; t++){
-     xlines (165, 250*t, 1);
-    }
-    pop ();
+   //push ();
+   //for (let t = 0; t <= 8; t++){
+     //xlines (165, 45*t, 1);
+    //}
+    //pop ();
     
-    push ();
-    for (let s = 0; s <= 8; s++){
-      spear (100, 150*s, 1);
-    }
-    pop();
+    //push ();
+    //for (let s = 0; s <= 8; s++){
+    //  spear (100, 150*s, 1);
+   // }
+    //pop();
 
-push();
-for (let g = 0; g <= 5; g++){
-  star(257*g, 300, 1);
-}
-pop();
+//push();
+//for (let g = 0; g <= 5; g++){
+ // star(257*g, 300, 1);
+//}
+//pop();
 
-push ();
-for (let c = 0; c <= 18; c++){
-  tangle (-200, 100*c, 2);
-}
-pop();
-
-//grid
-push ();
-strokeWeight (1);
-stroke (155);
-line (0, 0, 540, 960);
-line (540, 0, 0, 960);
-line (270, 0, 270, 960);
-line (0, 480, 540, 480);
-pop();
-
-push ();
-strokeWeight (1)
-stroke (0);
-triangle (380, 200, 400, 200, 390, 220);
-pop ();
-
-
+//push ();
+//for (let c = 0; c <= 18; c++){
+ // tangle (-180, 100*c, 2);
+//}
+//pop();
 
 }
 
@@ -107,8 +103,9 @@ pop ();
 
 function tangle (x, y, size){
   push ();
-  strokeWeight (1)
+  strokeWeight (1);
   stroke (0);
+  fill (0);
 
   triangle (x+380, y+200, 
     x+400, y+200, 
@@ -135,7 +132,7 @@ function spear (x, y, size,){
 push();
 strokeWeight (2);
 stroke (0);
-fill(255);
+fill("red");
 
 beginShape();
 vertex (x, y)
