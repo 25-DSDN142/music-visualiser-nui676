@@ -50,8 +50,11 @@ pop();
 
 //turtle legs and arms?
 push();
+ellipseMode (CORNER);
 //left arm
+
    ellipse (120, 500, 100, 180);
+
 //right arm
    ellipse (420, 500, 100, 180);
 //right leg
