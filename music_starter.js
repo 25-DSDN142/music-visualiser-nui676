@@ -43,17 +43,17 @@ line (-100, -100, -100, -200)
 pop();
 
 
+let swing = sin (frameCount *3)*5
+let swingout = sin (frameCount *3)*7
+
 push ();
-//left leg
+ellipseMode (CORNER);
+
 strokeWeight (1);
 stroke (255);
 fill (0);
-ellipseMode (CORNER);
-//sin is wow, we knew that we had to move it at rotate.
-//will map this to something at some point
+//left leg
 translate (160 + 50, 600);
-
-let swing = sin (frameCount *3)*10
 rotate (swing)
 ellipse (-50, 0, 100, 180);
 pop ();
@@ -62,7 +62,7 @@ push ();
 strokeWeight (1);
 stroke (255);
 fill (0);
-
+//right leg
 translate (330 + 50, 690);
 rotate (-swing);
 ellipse (-50, 0, 100, 180);
@@ -72,9 +72,9 @@ push ();
 strokeWeight (1);
 stroke (255);
 fill (0);
-
+//left arm
 translate (120 + 50, 480);
-rotate (swing);
+rotate (-swingout);
 ellipse (-50, 0, 100, 180);
 pop();
 
@@ -82,58 +82,55 @@ push ();
 strokeWeight (1);
 stroke (255);
 fill (0);
-
+//right arm
 translate (430 + 50, 480);
-rotate (-swing);
+rotate (swingout);
 ellipse (-50, 0, 100, 180);
 pop();
 
-
-
-   
-   //outershell
-   strokeWeight (1);
-   stroke (0);
-   fill (255);
-   ellipse (270, 500, 300, 400);
-   
-   //innershell border 
+push();
+   //Shell
    strokeWeight (2)
    stroke (0);
    fill (255)
-   ellipse (270, 500, 250, 350);
-   
-   //so im trying to get the star to wrap around the shells inner edge line(inner shell)
-   
-   
-   //push ();
-   //for (let t = 0; t <= 8; t++){
-     //xlines (165, 45*t, 1);
-    //}
-    //pop ();
-    
-    //push ();
-    //for (let s = 0; s <= 8; s++){
-    //  spear (100, 150*s, 1);
-   // }
-    //pop();
+   ellipse (270, 500, 350, 350);
+pop();
 
-//push();
-//for (let g = 0; g <= 5; g++){
- // star(257*g, 300, 1);
-//}
-//pop();
 
-//push ();
-//for (let c = 0; c <= 18; c++){
- // tangle (-180, 100*c, 2);
-//}
-//pop();
+let centerX = 270;
+let centerY = 500;
+let radius = 150;
+let numStars = 57;
 
+for (let i = 0; i < numStars; i++) {
+  let angle = i * TWO_PI
+  let x = centerX + radius * cos(angle);
+  let y = centerY + radius * sin(angle);
+
+push (); 
+  translate(x, y);
+  rotate(angle); 
+  star(0, 0, 1);
+pop ();
 }
 
+let centreX = 5;
+let centreY = 100;
+let radiuks = 250;
+let triangl = 100;
+for (let i = 0; i < triangl; i++) {
+  let angle = i * TWO_PI
+  let g = centreX + radiuks * cos(angle);
+  let a = centreY + radiuks * sin(angle);
 
+  push ();
+  translate (g, a);
+  rotate (angle);
+  tangle (0, 0, 1);
+  pop ();
 
+}
+}
 
 function tangle (x, y, size){
   push ();
