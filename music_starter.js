@@ -88,7 +88,8 @@ pop();
    ellipse (275, 320, 110, 135);
 pop ();
 
-
+//shell patterns
+//star pattern
 let centerX = 270;
 let centerY = 500;
 let radius = 150;
@@ -106,34 +107,91 @@ push ();
 pop ();
 }
 
-let centreX = 275;
-let centreY = 500;
-let radiuks = -550;
-let triangl = 100;
+let centrx = 270;
+let centry = 500;
+let innernRadius = -100;
+let lines = 57
 
-for (let t = 0; t < triangl; t++) {
+//x lines in the middle
+for (let t = 0; t < lines; t++) {
   let angle = t * TWO_PI
-  let g = centreX + radiuks * cos(angle);
-  let a = centreY + radiuks * sin(angle);
+  let x = centrx + innernRadius * cos(angle);
+  let y = centry + innernRadius * sin(angle);
 
   push ();
-  translate (g, a);
+  translate (x, y);
+  rotate (angle);
+  xlines (0, 0, 1);
+  pop ();
+}
+
+let centax = 270;
+let centay = 500;
+let innerCircle = 70;
+let trangl = 56.5
+
+for (let t = 0; t < trangl; t++) {
+  let angle = t * TWO_PI
+  let x = centax + innerCircle * cos(angle);
+  let y = centay + innerCircle * sin(angle);
+
+  push ();
+  translate (x, y);
   rotate (angle);
   tangle (0, 0, 1);
   pop ();
+}
+let centx = 270;
+let centy = 500;
+let circles = 90;
+let spears = 58
+
+for (let t = 0; t < spears; t++) {
+  let angle = t * TWO_PI
+  let x = centx + circles * cos(angle);
+  let y = centy + circles * sin(angle);
+
+  push ();
+  translate (x, y);
+  rotate (angle);
+  spear (0, 0, 1);
+  pop ();
+}
+//first set of triangles
+let centreX = 270;
+let centreY = 500;
+let innerRadius = 120;
+let triangl = 100
+
+for (let t = 0; t < triangl; t++) {
+  let angle = t * TWO_PI
+  let x = centreX + innerRadius * cos(angle);
+  let y = centreY + innerRadius * sin(angle);
+
+  push ();
+  translate (x, y);
+  rotate (angle+80);
+  tangle (0, 0, 1);
+  pop ();
+}
 
 }
+function flipper(size){
+  beginShape();
+  vertex(0, -size*0.5);
+  bezierVertex(size*0.5, -size*0.5, size*0.8, size*0.2, 0, size);
+  bezierVertex(-size*0.8, size*0.2, -size*0.5, -size*0.5, 0, -size*0.5);
+  endShape(CLOSE);
 }
-
 function tangle (x, y, size){
   push ();
   strokeWeight (1);
-  stroke (0);
-  fill (0);
+  stroke (255);
+  fill ("red");
 
-  triangle (x+380, y+200, 
-    x+400, y+200, 
-    x+390, y+220);
+  triangle (x, y, 
+    x+20, y, 
+    x+10, y+20);
   pop ();
 }
   
