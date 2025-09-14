@@ -22,28 +22,18 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    strokeWeight (1);
    stroke (0);
    fill (255);
-   ellipse (270, 290, 100, 120);
+   ellipse (275, 320, 120, 135);
 pop ();
 
-push ();
+//push ();
 //water movement draft
-xMove = xMove + 1;
-if (xMove > 950){
-  xMove = 0;}
-
-strokeWeight (1);
-stroke (0)
-//ill have to play with these lines, maybe add a map to the colour?
-translate (200, 1+xMove)
-line (200, 0, 200, 100);
-line (100, 0, 100, 100);
-line (50, 100, 50, 200);
-line (-100, -100, -100, -200)
-
-pop();
+//xMove = xMove + 1;
+//if (xMove > 950){
+ // xMove = 0;}
+//pop ();
 
 
-let swing = sin (frameCount *3)*5
+let swing = sin (frameCount *2)*5
 let swingout = sin (frameCount *3)*7
 
 push ();
@@ -114,12 +104,13 @@ push ();
 pop ();
 }
 
-let centreX = 5;
-let centreY = 100;
-let radiuks = 250;
+let centreX = 275;
+let centreY = 500;
+let radiuks = -550;
 let triangl = 100;
-for (let i = 0; i < triangl; i++) {
-  let angle = i * TWO_PI
+
+for (let t = 0; t < triangl; t++) {
+  let angle = t * TWO_PI
   let g = centreX + radiuks * cos(angle);
   let a = centreY + radiuks * sin(angle);
 
