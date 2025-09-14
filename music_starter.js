@@ -76,8 +76,9 @@ push();
    //Shell
    strokeWeight (2)
    stroke (0);
-   fill (255)
+   fill ("yellow")
    ellipse (270, 500, 350, 350);
+
 pop();
    push ();
   //turtle head?
@@ -174,7 +175,10 @@ for (let t = 0; t < triangl; t++) {
   tangle (0, 0, 1);
   pop ();
 }
-
+push ();
+translate (20, 100);
+flipper (1)
+pop ();
 }
 function flipper(size){
   beginShape();
