@@ -17,13 +17,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    //let angle = frameCount * 0.6;
   
    
-   push ();
-  //turtle head?
-   strokeWeight (1);
-   stroke (0);
-   fill (255);
-   ellipse (275, 320, 120, 135);
-pop ();
+
 
 //push ();
 //water movement draft
@@ -85,6 +79,14 @@ push();
    fill (255)
    ellipse (270, 500, 350, 350);
 pop();
+   push ();
+  //turtle head?
+   strokeWeight (1);
+   stroke (0);
+   fill (255);
+   rotate (swing)
+   ellipse (275, 320, 110, 135);
+pop ();
 
 
 let centerX = 270;
