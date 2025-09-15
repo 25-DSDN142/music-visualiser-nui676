@@ -19,75 +19,23 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    
 
 
-//push ();
-//water movement draft
-//xMove = xMove + 1;
-//if (xMove > 950){
- // xMove = 0;}
-//pop ();
-
-
-let swing = sin (frameCount *2)*5
-let swingout = sin (frameCount *3)*7
-
 push ();
-ellipseMode (CORNER);
-
-strokeWeight (1);
-stroke (255);
-fill (0);
-//left leg
-translate (160 + 50, 600);
-rotate (swing)
-ellipse (-50, 0, 100, 180);
+//water movement draft
+xMove = xMove + 1;
+if (xMove > 950){
+ xMove = 0;}
 pop ();
 
-push ();
-strokeWeight (1);
-stroke (255);
-fill (0);
-//right leg
-translate (330 + 50, 690);
-rotate (-swing);
-ellipse (-50, 0, 100, 180);
-pop();
 
-push ();
-strokeWeight (1);
-stroke (255);
-fill (0);
-//left arm
-translate (120 + 50, 480);
-rotate (-swingout);
-ellipse (-50, 0, 100, 180);
-pop();
-
-push ();
-strokeWeight (1);
-stroke (255);
-fill (0);
-//right arm
-translate (430 + 50, 480);
-rotate (swingout);
-ellipse (-50, 0, 100, 180);
-pop();
 
 push();
    //Shell
    strokeWeight (2)
    stroke (0);
-   fill ("yellow")
+   fill ("white")
    ellipse (270, 500, 350, 350);
 
 pop();
-   push ();
-  //turtle head?
-   strokeWeight (1);
-   stroke (0);
-   fill (255);
-   rotate (swing)
-   ellipse (275, 320, 110, 135);
-pop ();
 
 //shell patterns
 //star pattern
@@ -102,49 +50,20 @@ for (let i = 0; i < numStars; i++) {
   let y = centerY + radius * sin(angle);
 
 push (); 
+   strokeWeight (1);
+   stroke (150);
+   // fill(155 )
+   fill(0)
   translate(x, y);
   rotate(angle); 
   star(0, 0, 1);
 pop ();
 }
 
-let centrx = 270;
-let centry = 500;
-let innernRadius = -100;
-let lines = 57
-
-//x lines in the middle
-for (let t = 0; t < lines; t++) {
-  let angle = t * TWO_PI
-  let x = centrx + innernRadius * cos(angle);
-  let y = centry + innernRadius * sin(angle);
-
-  push ();
-  translate (x, y);
-  rotate (angle);
-  xlines (0, 0, 1);
-  pop ();
-}
-
-let centax = 270;
-let centay = 500;
-let innerCircle = 70;
-let trangl = 56.5
-
-for (let t = 0; t < trangl; t++) {
-  let angle = t * TWO_PI
-  let x = centax + innerCircle * cos(angle);
-  let y = centay + innerCircle * sin(angle);
-
-  push ();
-  translate (x, y);
-  rotate (angle);
-  tangle (0, 0, 1);
-  pop ();
-}
+//outer spears
 let centx = 270;
 let centy = 500;
-let circles = 90;
+let circles = 80;
 let spears = 58
 
 for (let t = 0; t < spears; t++) {
@@ -154,7 +73,7 @@ for (let t = 0; t < spears; t++) {
 
   push ();
   translate (x, y);
-  rotate (angle);
+  rotate (angle - 40+ xMove);
   spear (0, 0, 1);
   pop ();
 }
@@ -175,10 +94,56 @@ for (let t = 0; t < triangl; t++) {
   tangle (0, 0, 1);
   pop ();
 }
+//star in the middle
 push ();
-translate (20, 100);
-flipper (1)
+translate (260, 475);
+rotate (20)
+star (0, 0, 1.5)
 pop ();
+
+
+//inner spears
+let cntx = 270;
+let cnty = 500;
+let circl = 50;
+let spearz = 58
+
+for (let t = 0; t < spearz; t++) {
+  let angle = t * TWO_PI
+  let x = cntx + circl * cos(angle);
+  let y = cnty + circl * sin(angle);
+  
+  push ();
+  translate (x, y);
+  rotate (angle - 40);
+  spear (0, 0, 1);
+  pop ();
+  
+  
+}
+let centrx = 270;
+let centry = 500;
+let innernRadius = -100;
+let lines = 57
+
+//x lines in the middle
+for (let t = 0; t < lines; t++) {
+  let angle = t * TWO_PI
+  let x = centrx + innernRadius * cos(angle);
+  let y = centry + innernRadius * sin(angle);
+
+  push ();
+  translate (x, y);
+  rotate (angle - 10);
+  xlines (0, 0, 1);
+  pop ();
+}
+
+push ();
+translate (20, 20);
+flipper
+pop ();
+
 }
 function flipper(size){
   beginShape();
@@ -189,10 +154,6 @@ function flipper(size){
 }
 function tangle (x, y, size){
   push ();
-  strokeWeight (1);
-  stroke (255);
-  fill ("red");
-
   triangle (x, y, 
     x+20, y, 
     x+10, y+20);
@@ -237,12 +198,7 @@ pop();
 
 function star(x,y,size){
    
-  push();
-   strokeWeight (1);
-   stroke (150);
-   // fill(155 )
-   fill(0)
-   
+  push();   
    beginShape ();
    scale(size);
    vertex (x, y);
