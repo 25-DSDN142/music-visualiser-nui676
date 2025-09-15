@@ -12,6 +12,11 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   let bar_height = width / 12;
   let bar_pos_x = width / 2;
   
+  
+    let gg = map (vocal, 0, 100, 0, 255);
+    let g = map (bass, 0, 100, 155, 255);
+    let s = map (other, 0, 100, -10, 10)
+    let p = map (counter, 0, 200, 0, 155)
 
   push ();
   //water movement draft
@@ -22,7 +27,6 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   let swim = sin(frameCount * 1 ) *50
   let flap = sin (frameCount * 1) *15
 
-  let gg = map (vocal, 0, 255, 0, 155);
 
   //left flipper
   push ();
@@ -98,7 +102,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     
     push();
     strokeWeight (1.5);
-    stroke (255);
+    stroke (p);
     fill(gg)
     
     translate (x, y);
@@ -122,7 +126,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     push();
     strokeWeight (1);
     stroke (255);
-    fill(0)
+    fill(gg)
     
     translate(x, y);
     rotate(angle); 
