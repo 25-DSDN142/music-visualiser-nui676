@@ -55,7 +55,7 @@ push ();
    // fill(155 )
    fill(0)
   translate(x, y);
-  rotate(angle); 
+  rotate(angle +xMove); 
   star(0, 0, 1);
 pop ();
 }
@@ -67,13 +67,13 @@ let circles = 80;
 let spears = 58
 
 for (let t = 0; t < spears; t++) {
-  let angle = t * TWO_PI
+  let angle = t * TWO_PI + xMove
   let x = centx + circles * cos(angle);
   let y = centy + circles * sin(angle);
 
   push ();
-  translate (x, y);
-  rotate (angle - 40+ xMove);
+  translate (x, y );
+  rotate (angle - 40);
   spear (0, 0, 1);
   pop ();
 }
