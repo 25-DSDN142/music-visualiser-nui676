@@ -45,7 +45,7 @@ let radius = 150;
 let numStars = 57;
 
 for (let i = 0; i < numStars; i++) {
-  let angle = i * TWO_PI
+  let angle = i * TWO_PI + xMove
   let x = centerX + radius * cos(angle);
   let y = centerY + radius * sin(angle);
 
@@ -55,7 +55,7 @@ push ();
    // fill(155 )
    fill(0)
   translate(x, y);
-  rotate(angle +xMove); 
+  rotate(angle); 
   star(0, 0, 1);
 pop ();
 }
@@ -84,7 +84,7 @@ let innerRadius = 120;
 let triangl = 100
 
 for (let t = 0; t < triangl; t++) {
-  let angle = t * TWO_PI
+  let angle = t * TWO_PI - xMove
   let x = centreX + innerRadius * cos(angle);
   let y = centreY + innerRadius * sin(angle);
 
@@ -109,7 +109,7 @@ let circl = 50;
 let spearz = 58
 
 for (let t = 0; t < spearz; t++) {
-  let angle = t * TWO_PI
+  let angle = t * TWO_PI + xMove
   let x = cntx + circl * cos(angle);
   let y = cnty + circl * sin(angle);
   
