@@ -1,6 +1,5 @@
 var xMove = 1;//have to declare for some reason otherwise it doesn't work
 
-
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background("blue")
@@ -9,171 +8,137 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   angleMode(DEGREES);
   textSize(24);
   
-   let bar_spacing = height / 10;
-   let bar_height = width / 12;
-   let bar_pos_x = width / 2;
-   
-   //rotate(angle); i like this,
-   //let angle = frameCount * 0.6;
-push ();
-//water movement draft
-xMove = xMove + 1;
-if (xMove > 2000){ xMove = 0;}
-pop ();
-
-
-push();
-//Shell
-strokeWeight (2)
-stroke (0);
-fill ("yellow")
-ellipse (270, 500, 350, 350);
-pop();
-   
-   //shell patterns
-   //star pattern
-   let centerX = 270;
-   let centerY = 500;
-   let radius = 150;
-   let numStars = 57;
-   
-   for (let i = 0; i < numStars; i++) {
-     let angle = i * TWO_PI + xMove
-     let x = centerX + radius * cos(angle);
-     let y = centerY + radius * sin(angle);
-     
-     push (); 
-     strokeWeight (1);
-     stroke (150);
-     // fill(155 )
-     fill(255)
-     translate(x, y);
-     rotate(angle); 
-  star(0, 0, 1);
-  pop ();
-}
-
-//outer spears
-let centx = 270;
-let centy = 500;
-let circles = 80;
-let spears = 58
-
-for (let t = 0; t < spears; t++) {
-  let angle = t * TWO_PI + xMove
-  let x = centx + circles * cos(angle);
-  let y = centy + circles * sin(angle);
+  let bar_spacing = height / 10;
+  let bar_height = width / 12;
+  let bar_pos_x = width / 2;
+  
 
   push ();
+  //water movement draft
+  xMove = xMove + 1;
+  if (xMove > 2000){ xMove = 0;}
+  pop ();
+
+  
+  push();
+  //head
   strokeWeight (1);
   stroke (0);
-  fill (255);
+  fill (0)
+  ellipse (270, 305, 70, 110);
   
-  translate (x, y );
-  strokeWeight (2);
-stroke (0);
-  rotate (angle - 40);
-  spear (0, 0, 1);
-  pop ();
-}
-//star in the middle
-push ();
-strokeWeight (2);
-stroke (0);
-fill (255, 0, 255)
-translate (260, 475);
-rotate (20)
-star (0, 0, 1.5)
-pop ();
-
-
-//inner spears
-let cntx = 270;
-let cnty = 500;
-let circl = 50;
-let spearz = 58
-
-for (let t = 0; t < spearz; t++) {
-  let angle = t * TWO_PI + xMove
-  let x = cntx + circl * cos(angle);
-  let y = cnty + circl * sin(angle);
+  //outer circle
+  strokeWeight (4)
+  fill (155)
+  ellipse (270, 500, 260, 360);
   
+  //inner circle
+  strokeWeight (1)
+  fill (255)
+  ellipse (270, 500, 220, 320);
+
+  pop();
+
   push ();
-  strokeWeight (2);
-stroke (0);
-  translate (x, y);
-  rotate (angle - 40);
-  spear (0, 0, 1);
-  pop ();
-}
-
-push ();
-translate (20, 20);
-flipper
-pop ();
-
-let centrx = 270;
-let centry = 500;
-let innernRadius = 100;
-let lines = 57
-
-//stars in the middle
-for (let t = 0; t < lines; t++) {
-  let angle = t * TWO_PI
-  let x = centrx + innernRadius * cos(angle);
-  let y = centry + innernRadius * sin(angle);
+  translate (100, 100);
+  flipper (100);
+  pop();
   
-  push ();
-  strokeWeight (1);
-  stroke (0);
-  translate (x, y);
-  rotate (angle * 100);
-  star (0, 0, 1);
-  pop ();
-}
-//first set of triangles
-let centreX = 270;
-let centreY = 500;
-let innerRadius = 250;
-let triangl = 100
+  //shell patterns
+  
+  //star in the middle
+    for (let i = 0; i < 20; i ++){
+    push ();
+    translate (270, 500);
+    strokeWeight (1)
+    rotate (40*i);
+    star (0, 0, 2);
+    pop ();
+    
+    }
 
-for (let t = 0; t < triangl; t++) {
-  let angle = t * TWO_PI + xMove
-  let x = centreX + innerRadius * cos(angle);
-  let y = centreY + innerRadius * sin(angle);
+  //black spears
+  let centerX = 270;
+  let centerY = 500;
+  let radiuX = 100/2;
+  let radiuY = 200/2;
+  let numb = 58;
+  
+  for (let i = 0; i < numb; i++) {
+    let angles = i * TWO_PI
+    let x = centerX + radiuX * cos(angles);
+    let y = centerY + radiuY * sin(angles);
+    
+    
+    push();
+    strokeWeight (1);
+    stroke (255);
+    fill(0)
+    
+    translate (x, y);
+    rotate (angles - 40);
+    spear (0, 0, 1);
+    pop ();
+  }
 
-  push ();
-  translate (x, y);
-  rotate (angle * 500);
-  tangle (0, 0, 1);
-  pop ();
-}
-let centX = 270;
-let centY = 500;
-let innerCircle = 200;
-let sta = 57
+  //red star on the outside
+  let centreX = 270;
+  let centreY = 500;
+  let radiusX = 240/2;
+  let radiusY = 340/2;
+  let num = 58;
+  
+  for (let i = 0; i < num; i++) {
+    let angle = i * TWO_PI
+    let x = centreX + radiusX * cos(angle);
+    let y = centreY + radiusY * sin(angle);
+    
+    
+    push();
+    strokeWeight (0.5);
+    stroke (255);
+    fill("red")
+    
+    translate(x, y);
+    rotate(angle); 
+    star(0, 0, 1.2);
+    pop ();
+  }
 
-for (let t = 0; t < sta; t++) {
-  let angle = t * TWO_PI - xMove
-  let x = centX + innerCircle * cos(angle);
-  let y = centY + innerCircle * sin(angle);
+  //triangles in the middle
+  let cX = 270;
+  let cY = 500;
+  let radX = 100/2;
+  let radY = 180/2;
+  let numbs = 58;
 
-  push ();
-  translate (x, y);
-  rotate (angle + 140);
-  star (0, 0, 1);
-  pop ();
-}
+    for (let i = 0; i < numbs; i++) {
+    let angle = i * TWO_PI
+    let x = cX + radX * cos(angle);
+    let y = cY + radY * sin(angle);
+    
+    
+    push();
+    strokeWeight (1);
+    stroke (255);
+    fill("red")
+    
+    translate(x, y);
+    rotate(angle); 
+    tangle(0, 0, 0.5);
+    pop ();
+  }
+ 
 
 }
 function flipper(size){
   beginShape();
-  vertex(0, -size*0.5);
-  bezierVertex(size*0.5, -size*0.5, size*0.8, size*0.2, 0, size);
-  bezierVertex(-size*0.8, size*0.2, -size*0.5, -size*0.5, 0, -size*0.5);
+  vertex(0, -size*1);
+  bezierVertex(size*1, -size*0.5, size*0.5, size*1, 0, size);
+  bezierVertex(-size*1, size*0.2, -size*0.1, -size*0.5, 0, -size*1);
   endShape(CLOSE);
 }
-function tangle (x, y, size){
+function tangle(x,y,size){
   push ();
   triangle (x, y, 
     x+20, y, 
@@ -181,7 +146,7 @@ function tangle (x, y, size){
   pop ();
 }
   
-function xlines (x, y, size){
+function xlines(x,y,size){
 push();
 
 line (x+95, y+35, x+115, y+45);
@@ -193,7 +158,7 @@ line (x+95, y+75, x+115, y+75);
 line (x+95, y+80, x+115, y+80);
 pop ();
 }
-function spear (x, y, size,){
+function spear(x,y,size){
   
 push();
 
