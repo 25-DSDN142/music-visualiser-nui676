@@ -20,6 +20,39 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   pop ();
 
   
+  //left flipper
+  push ();
+  translate (95, 400);
+  rotate (-90)
+  flipper (80);
+  pop();
+  
+  //left foot flipper
+  push ();
+  translate (200, 700);
+  rotate (180)
+  flipper (80)
+  pop ();
+  
+  //right flipper
+  push ();
+  translate (450, 400);
+  scale (-1, 1);
+  rotate (-90);
+  flipper (80);
+  pop ();
+
+  //right foot flipper
+  push ();
+  translate (350, 700);
+  scale (-1, 1);
+  rotate (180);
+  flipper (80);
+  pop ();
+
+
+
+
   push();
   //head
   strokeWeight (1);
@@ -39,11 +72,6 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
   pop();
 
-  push ();
-  translate (100, 100);
-  flipper (100);
-  pop();
-  
   //shell patterns
   
   //star in the middle
