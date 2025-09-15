@@ -22,7 +22,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   let swim = sin(frameCount * 1 ) *50
   let flap = sin (frameCount * 1) *15
 
-  
+  let gg = map (vocal, 0, 255, 0, 155);
 
   //left flipper
   push ();
@@ -98,8 +98,8 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     
     push();
     strokeWeight (1.5);
-    stroke (0);
-    fill(255)
+    stroke (255);
+    fill(gg)
     
     translate (x, y);
     rotate (angles - 40);
