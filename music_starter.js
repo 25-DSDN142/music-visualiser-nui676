@@ -16,37 +16,41 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   push ();
   //water movement draft
   xMove = xMove + 1;
-  if (xMove > 2000){ xMove = 0;}
+  if (xMove > 200){ xMove = 0;}
   pop ();
 
+  let swim = sin(frameCount * 1 ) *50
+  let flap = sin (frameCount * 1) *15
+
   
+
   //left flipper
   push ();
-  translate (95, 400);
-  rotate (-90)
+  translate (120, 450);
+  rotate (-90 + swim)
   flipper (80);
   pop();
   
   //left foot flipper
   push ();
   translate (200, 700);
-  rotate (180)
+  rotate (180 + flap)
   flipper (80)
   pop ();
   
   //right flipper
   push ();
-  translate (450, 400);
+  translate (420, 450);
   scale (-1, 1);
-  rotate (-90);
+  rotate (-90 + swim);
   flipper (80);
   pop ();
 
   //right foot flipper
   push ();
-  translate (350, 700);
+  translate (340, 700);
   scale (-1, 1);
-  rotate (180);
+  rotate (180 + flap);
   flipper (80);
   pop ();
 
@@ -54,26 +58,32 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   //head
   push();
   strokeWeight (1);
-  stroke (0);
+  stroke (255);
   fill (0)
   ellipse (270, 305, 90, 130);
   
-  //outer circle
+  //outer circle shell
   strokeWeight (4)
   fill (155)
   ellipse (270, 500, 260, 360);
   
-  //inner circle
-  strokeWeight (1)
-  fill (255)
+  //inner circle shell
+  strokeWeight (3)
+  stroke (0)
+  fill (155)
   ellipse (270, 500, 220, 320);
+    
+  //inner inner circle shell
+  strokeWeight (3)
+  stroke (0)
+  fill (155);
+  ellipse (270, 500, 150, 230);
   pop();
 
-  //shell patterns
+  //shell
   
-  //star in the middle
+  //middle of shell
   
-
   //black spears
   let centerX = 270;
   let centerY = 500;
@@ -86,11 +96,10 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     let x = centerX + radiuX * cos(angles);
     let y = centerY + radiuY * sin(angles);
     
-    
     push();
-    strokeWeight (1);
-    stroke (255);
-    fill(0)
+    strokeWeight (1.5);
+    stroke (0);
+    fill(255)
     
     translate (x, y);
     rotate (angles - 40);
@@ -98,7 +107,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     pop ();
   }
 
-  //red star on the outside
+  //star on the outside
   let centreX = 270;
   let centreY = 500;
   let radiusX = 240/2;
@@ -110,45 +119,53 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     let x = centreX + radiusX * cos(angle);
     let y = centreY + radiusY * sin(angle);
     
-    
     push();
-    strokeWeight (0.5);
+    strokeWeight (1);
     stroke (255);
-    fill("red")
+    fill(0)
     
     translate(x, y);
     rotate(angle); 
-    star(0, 0, 1.2);
+    star(0, 0, 1);
     pop ();
   }
-
+  
   //triangles in the middle
   let cX = 270;
   let cY = 500;
-  let radX = 100/2;
-  let radY = 180/2;
+  let radX = 90/2;
+  let radY = 160/2;
   let numbs = 58;
-
-    for (let i = 0; i < numbs; i++) {
+  
+  for (let i = 0; i < numbs; i++) {
     let angle = i * TWO_PI
     let x = cX + radX * cos(angle);
     let y = cY + radY * sin(angle);
     
-    
     push();
     strokeWeight (1);
     stroke (255);
-    fill("red")
+    fill(0)
     
     translate(x, y);
     rotate(angle); 
-    tangle(0, 0, 0.5);
+    tangle(0, 0, 1);
     pop ();
   }
- 
+    push ();
+    translate (115, 400);
+    strokeWeight (2);
+    stroke (0);
+    xlines (0,0,1.5);
+    pop();
 
-}
+    }
+  
+
 function flipper(size){
+  strokeWeight (1);
+  stroke (255);
+  fill (0);
   beginShape();
   vertex(0, -size*1);
   bezierVertex(size*1, -size*0.5, size*0.5, size*1, 0, size);
@@ -157,6 +174,7 @@ function flipper(size){
 }
 function tangle(x,y,size){
   push ();
+  scale (size);
   triangle (x, y, 
     x+20, y, 
     x+10, y+20);
@@ -165,7 +183,7 @@ function tangle(x,y,size){
   
 function xlines(x,y,size){
 push();
-
+scale (size);
 line (x+95, y+35, x+115, y+45);
 line (x+95, y+45, x+115, y+35);
 line (x+100, y+50, x+100, y+70);
@@ -178,7 +196,7 @@ pop ();
 function spear(x,y,size){
   
 push();
-
+scale (size);
 beginShape();
 vertex (x, y)
 vertex (x+50, y+50);
