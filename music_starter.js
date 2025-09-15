@@ -50,15 +50,13 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   flipper (80);
   pop ();
 
-
-
-
-  push();
+  
   //head
+  push();
   strokeWeight (1);
   stroke (0);
   fill (0)
-  ellipse (270, 305, 70, 110);
+  ellipse (270, 305, 90, 130);
   
   //outer circle
   strokeWeight (4)
@@ -69,21 +67,12 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   strokeWeight (1)
   fill (255)
   ellipse (270, 500, 220, 320);
-
   pop();
 
   //shell patterns
   
   //star in the middle
-    for (let i = 0; i < 20; i ++){
-    push ();
-    translate (270, 500);
-    strokeWeight (1)
-    rotate (40*i);
-    star (0, 0, 2);
-    pop ();
-    
-    }
+  
 
   //black spears
   let centerX = 270;
