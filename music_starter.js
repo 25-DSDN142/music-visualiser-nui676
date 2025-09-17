@@ -128,7 +128,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     
     push();
     strokeWeight (1);
-    stroke (255);
+    stroke (orange);
     fill(d)
     
     translate(x, y);
