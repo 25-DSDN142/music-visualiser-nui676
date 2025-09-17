@@ -20,6 +20,7 @@ if (words == "") {
   yOffset = 0; //don't offset down
   lastWords = words; // keep track of what the most recent word is
 }
+//just to say hi.
 
 fill(wordBrightness);
 textSize(40);
