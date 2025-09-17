@@ -13,10 +13,13 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   let bar_pos_x = width / 2;
   
   
-    let gg = map (vocal, 0, 100, 0, 255);
-    let g = map (bass, 0, 100, 155, 255);
-    let s = map (other, 0, 100, -10, 10)
-    let p = map (counter, 0, 200, 0, 155)
+    let v = map (vocal, 0, 100, 0, 255);
+    let b = map (bass, 0, 100, 0, 200);
+    let o = map (other, 0, 100, -10, 10);
+    let c = map (counter, 0, 200, 0, 155);
+    let w = map (words, 0, 100, -1, 1.5);
+    let d = map (drum, 0, 100, 0, 15);
+
 
   push ();
   //water movement draft
@@ -27,6 +30,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   let swim = sin(frameCount * 1 ) *50
   let flap = sin (frameCount * 1) *15
 
+  
 
   //left flipper
   push ();
@@ -68,19 +72,19 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   
   //outer circle shell
   strokeWeight (4)
-  fill (155)
+  fill (v)
   ellipse (270, 500, 260, 360);
   
   //inner circle shell
   strokeWeight (3)
   stroke (0)
-  fill (155)
+  fill (v)
   ellipse (270, 500, 220, 320);
     
   //inner inner circle shell
   strokeWeight (3)
   stroke (0)
-  fill (155);
+  fill (v);
   ellipse (270, 500, 150, 230);
   pop();
 
@@ -96,14 +100,14 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   let numb = 58;
   
   for (let i = 0; i < numb; i++) {
-    let angles = i * TWO_PI
+    let angles = i * TWO_PI + v
     let x = centerX + radiuX * cos(angles);
     let y = centerY + radiuY * sin(angles);
     
     push();
     strokeWeight (1.5);
-    stroke (p);
-    fill(gg)
+    stroke (255);
+    fill(d)
     
     translate (x, y);
     rotate (angles - 40);
@@ -116,7 +120,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   let centreY = 500;
   let radiusX = 240/2;
   let radiusY = 340/2;
-  let num = 58;
+  let num = 57;
   
   for (let i = 0; i < num; i++) {
     let angle = i * TWO_PI
@@ -126,7 +130,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     push();
     strokeWeight (1);
     stroke (255);
-    fill(gg)
+    fill(0)
     
     translate(x, y);
     rotate(angle); 
@@ -139,10 +143,10 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   let cY = 500;
   let radX = 90/2;
   let radY = 160/2;
-  let numbs = 58;
+  let numbs = 57;
   
   for (let i = 0; i < numbs; i++) {
-    let angle = i * TWO_PI
+    let angle = i * TWO_PI + b
     let x = cX + radX * cos(angle);
     let y = cY + radY * sin(angle);
     
