@@ -22,11 +22,12 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     let red = color (234, 64, 52);
     let orange = color (242, 158, 48);
     let yellow = color (239, 242, 48);
-  //push ();
-  //water movement draft
-  //xMove = xMove + 1;
-  //if (xMove > 200){ xMove = 0;}
-  //pop ();
+  
+  
+    push ();
+  xMove = xMove + 1;
+  if (xMove > 200){ xMove = 0;}
+  pop ();
 
   let swim = sin(frameCount * 1 ) *50
   let flap = sin (frameCount * 1) *15
@@ -168,7 +169,8 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     xlines (0,0,1.5);
     pop();
 
-    }
+}
+
   
 
 function flipper(size){
