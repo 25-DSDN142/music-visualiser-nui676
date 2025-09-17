@@ -17,7 +17,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   
     let v = map (vocal, 0, 100, 0, 114);
     let b = map (bass, 30, 100, 0, 57); 
-    let d = map (drum, 0, 100, 0, 15);
+    let d = map (drum, 0, 100, 0, 255);
 
     let red = color (234, 64, 52);
     let orange = color (242, 158, 48);
@@ -30,8 +30,6 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
   let swim = sin(frameCount * 1 ) *50
   let flap = sin (frameCount * 1) *15
-
-  
 
   //left flipper
   push ();
@@ -63,7 +61,6 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   flipper (80);
   pop ();
 
-  
   //head
   push();
   strokeWeight (1);
@@ -132,7 +129,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     push();
     strokeWeight (1);
     stroke (255);
-    fill(0)
+    fill(d)
     
     translate(x, y);
     rotate(angle); 
@@ -155,7 +152,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     push();
     strokeWeight (1);
     stroke (255);
-    fill(0)
+    fill(d)
     
     translate(x, y);
     rotate(angle); 
